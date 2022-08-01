@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="first commit&#10;레파지토리 코드초기화 및 프로젝트 생성">
-      <change afterPath="$PROJECT_DIR$/ImageFIndModul.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RiotRun.py" afterDir="false" />
+    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="여러 코드 수정">
+      <change afterPath="$PROJECT_DIR$/GuiClassFile/PathErrorGui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuiClassFile/MainGuiClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/MainGuiClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RiotRun.py" beforeDir="false" afterPath="$PROJECT_DIR$/RiotRun.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/RiotRun.py" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RunManager" selected="Python.RiotRunModul">
     <configuration name="RiotRunModul" type="PythonConfigurationType" factoryName="Python">
@@ -117,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659170950160</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="여러 코드 수정">
+      <created>1659275791903</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1659275791905</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,6 +140,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit&#10;레파지토리 코드초기화 및 프로젝트 생성" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit&#10;레파지토리 코드초기화 및 프로젝트 생성" />
+    <MESSAGE value="여러 코드 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="여러 코드 수정" />
   </component>
 </project>

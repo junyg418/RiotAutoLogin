@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="여러 코드 수정">
+    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="close_button 이벤트함수 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GuiClassFile/MainGuiClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/MainGuiClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GuiClassFile/PathErrorGui.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/PathErrorGui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RiotRun.py" beforeDir="false" afterPath="$PROJECT_DIR$/RiotRun.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +42,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/GuiClassFile/PathErrorGui.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/RiotRun.py" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
-  <component name="RunManager" selected="Python.ErrorPage">
+  <component name="RunManager" selected="Python.RIotRun">
     <configuration name="ErrorPage" type="PythonConfigurationType" factoryName="Python">
       <module name="RiotAutoLogin" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -58,6 +59,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GuiClassFile/PathErrorGui.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RIotRun" type="PythonConfigurationType" factoryName="Python">
+      <module name="RiotAutoLogin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RiotRun.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -90,6 +112,7 @@
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python.ErrorPage" />
+      <item itemvalue="Python.RIotRun" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
@@ -122,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659275791905</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="close_button 이벤트함수 추가">
+      <created>1659377394215</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1659377394215</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -140,6 +170,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit&#10;레파지토리 코드초기화 및 프로젝트 생성" />
     <MESSAGE value="여러 코드 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="여러 코드 수정" />
+    <MESSAGE value="close_button 이벤트함수 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="close_button 이벤트함수 추가" />
   </component>
 </project>

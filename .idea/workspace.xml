@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="close_button 이벤트함수 추가">
+    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="close_button 이벤트함수 추가&#10;PathErrorGui.py 닫을떄 이벤트&#10;경로 이상 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GuiClassFile/MainGuiClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/MainGuiClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GuiClassFile/PathErrorGui.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/PathErrorGui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RiotRun.py" beforeDir="false" afterPath="$PROJECT_DIR$/RiotRun.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +31,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="2" />
   </component>
   <component name="ProjectId" id="2CeZ6ETjfESHVV4yI115SMyP6y1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -152,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659377394215</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="close_button 이벤트함수 추가&#10;PathErrorGui.py 닫을떄 이벤트&#10;경로 이상 추가">
+      <created>1659530447785</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1659530447785</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,6 +180,7 @@
     <MESSAGE value="first commit&#10;레파지토리 코드초기화 및 프로젝트 생성" />
     <MESSAGE value="여러 코드 수정" />
     <MESSAGE value="close_button 이벤트함수 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="close_button 이벤트함수 추가" />
+    <MESSAGE value="close_button 이벤트함수 추가&#10;PathErrorGui.py 닫을떄 이벤트&#10;경로 이상 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="close_button 이벤트함수 추가&#10;PathErrorGui.py 닫을떄 이벤트&#10;경로 이상 추가" />
   </component>
 </project>

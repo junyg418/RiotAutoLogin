@@ -1,8 +1,9 @@
-import PySide6
 from PySide6.QtWidgets import *
 from PySide6.QtCore import Qt
 import sys
+"""
 
+"""
 
 class PathError(QWidget):
     def __init__(self):
@@ -28,7 +29,7 @@ class PathError(QWidget):
 
         self.main_layout.addWidget(self.riot_path_lineEdit, 1, 0, 1, 2)
         self.main_layout.addWidget(self.close_button, 1, 1, 1, 1)
-        self.main_layout.setColumnStretch(0,2)
+        self.main_layout.setColumnStretch(0, 2)
         self.main_layout.setRowStretch(1, 1)
 
     def init_widget(self):
@@ -41,6 +42,7 @@ class PathError(QWidget):
         # ---- close_button
         self.close_button.clicked.connect(self.page_close)
 
+    # noinspection PyPep8Naming
     def find_path(self) -> None:
         """
         클라이언트 경로를 지정해주는 함수 -> setPath_button 누르면 호출

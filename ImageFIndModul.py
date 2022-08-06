@@ -16,8 +16,7 @@ def find_locate(size:tuple=(1920,1080)) -> tuple:
     return (locate_sign[0],locate_sign[1]) # (left, top)
 
 def click_id(locate:tuple):
-    pyautogui.moveTo((locate[0]+200,locate[1]+240))
-    # pyautogui.click((locate[0]+240,locate[1]+200))
+    pyautogui.click((locate[0]+200,locate[1]+240))
     print('아클릭')
 
 def click_passward(locate:tuple):
@@ -27,5 +26,5 @@ def click_passward(locate:tuple):
 
 if __name__ == '__main__':
     locate = find_locate()
-    # click_id(locate)
+    click_id(locate)
     click_passward(locate)

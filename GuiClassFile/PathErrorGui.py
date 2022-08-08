@@ -1,9 +1,12 @@
 from PySide6.QtWidgets import *
 from PySide6.QtCore import Qt
+from CsvDataProcessingModul import *
 import sys
-"""
 
 """
+default_path = C:\Riot Games\Riot Client\RiotClientServices.exe
+"""
+
 
 class PathError(QWidget):
     def __init__(self):
@@ -62,10 +65,9 @@ class PathError(QWidget):
         경로를 로컬에 저장해주는 함수 -> page_close 에서 호출
         """
         file_path = self.riot_path_lineEdit.text()
-        print(file_path)  # TODO 로컬파일 저장으로 바꾸기
+        resetting_path(file_path)
 
 
-# if __name__ == '__main__':
 def open_error_page():
     app = QApplication(sys.argv)
     widget = PathError()

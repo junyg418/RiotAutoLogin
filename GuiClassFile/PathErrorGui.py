@@ -1,12 +1,12 @@
 from PySide6.QtWidgets import *
 from PySide6.QtCore import Qt
+import sys, os
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from CsvDataProcessingModul import *
-import sys
 
 """
 default_path = C:\Riot Games\Riot Client\RiotClientServices.exe
 """
-
 
 class PathError(QWidget):
     def __init__(self):
@@ -14,6 +14,7 @@ class PathError(QWidget):
         self.setGeometry(200, 200, 400, 100)
         self.setFixedSize(400, 100)
         self.setWindowTitle('클라이언트 경로 지정')
+        self.show()
 
         self.main_layout = QGridLayout(self)
         self.riot_path_lineEdit = QLineEdit()
@@ -45,7 +46,6 @@ class PathError(QWidget):
         # ---- close_button
         self.close_button.clicked.connect(self.page_close)
 
-    # noinspection PyPep8Naming
     def find_path(self) -> None:
         """
         클라이언트 경로를 지정해주는 함수 -> setPath_button 누르면 호출
@@ -71,5 +71,7 @@ class PathError(QWidget):
 def open_error_page():
     app = QApplication(sys.argv)
     widget = PathError()
-    widget.show()
     sys.exit(app.exec())
+
+if __name__ == '__main__':
+    open_error_page()

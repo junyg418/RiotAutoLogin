@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="close_button 이벤트함수 추가&#10;PathErrorGui.py 닫을떄 이벤트&#10;경로 이상 추가">
+    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="다시 재실행 시키게 뭐시기함">
+      <change afterPath="$PROJECT_DIR$/GuiClassFile/AccountManagementGuiClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuiClassFile/MainGuiClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/MainGuiClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuiClassFile/PathErrorGui.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/PathErrorGui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CsvDataProcessingModul.py" beforeDir="false" afterPath="$PROJECT_DIR$/CsvDataProcessingModule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GuiClassFile/MainGuiClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/MainGui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ImageFIndModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImageFIndModule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv_file/defaultValueCsvData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csv_file/defaultValueCsvData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +36,10 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/venv/Lib/site-packages/pyautogui/_pyautogui_x11.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/venv/Lib/site-packages/pyautogui/__init__.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedIndex" value="2" />
   </component>
@@ -44,10 +52,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/RiotRun.py" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.RIotRun">
+  <component name="RunManager" selected="Python.main_gui">
     <configuration name="ErrorPage" type="PythonConfigurationType" factoryName="Python">
       <module name="RiotAutoLogin" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -56,7 +64,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GuiClassFile" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -90,6 +98,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="csvdataprocessing" type="PythonConfigurationType" factoryName="Python">
+      <module name="RiotAutoLogin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\CsvDataProcessingModule.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="RiotAutoLogin" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -111,10 +140,55 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main_gui" type="PythonConfigurationType" factoryName="Python">
+      <module name="RiotAutoLogin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\GuiClassFile\MainGui.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python">
+      <module name="RiotAutoLogin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.main_gui" />
       <item itemvalue="Python.ErrorPage" />
+      <item itemvalue="Python.test" />
       <item itemvalue="Python.RIotRun" />
+      <item itemvalue="Python.csvdataprocessing" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
@@ -161,7 +235,35 @@
       <option name="project" value="LOCAL" />
       <updated>1659530447785</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ImageFIndModul.py&#10;ImageFIndModule.py 오타 수정&#10;&#10;설명주석들 추가">
+      <created>1659879557153</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1659879557153</updated>
+    </task>
+    <task id="LOCAL-00007" summary="데이터 저장 및 호출기능 추가&#10;기능에 추가">
+      <created>1659942813867</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1659942813867</updated>
+    </task>
+    <task id="LOCAL-00008" summary="RiotRunModule.py getpath 기능 연동 및 함수화">
+      <created>1660055968836</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660055968836</updated>
+    </task>
+    <task id="LOCAL-00009" summary="다시 재실행 시키게 뭐시기함">
+      <created>1660056018237</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1660056018237</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,6 +283,10 @@
     <MESSAGE value="여러 코드 수정" />
     <MESSAGE value="close_button 이벤트함수 추가" />
     <MESSAGE value="close_button 이벤트함수 추가&#10;PathErrorGui.py 닫을떄 이벤트&#10;경로 이상 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="close_button 이벤트함수 추가&#10;PathErrorGui.py 닫을떄 이벤트&#10;경로 이상 추가" />
+    <MESSAGE value="ImageFIndModul.py&#10;ImageFIndModule.py 오타 수정&#10;&#10;설명주석들 추가" />
+    <MESSAGE value="데이터 저장 및 호출기능 추가&#10;기능에 추가" />
+    <MESSAGE value="RiotRunModule.py getpath 기능 연동 및 함수화" />
+    <MESSAGE value="다시 재실행 시키게 뭐시기함" />
+    <option name="LAST_COMMIT_MESSAGE" value="다시 재실행 시키게 뭐시기함" />
   </component>
 </project>

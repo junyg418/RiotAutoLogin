@@ -2,6 +2,7 @@ import sys
 from PySide6.QtWidgets import *
 from PySide6.QtCore import Qt
 
+
 class Management(QWidget):
     def __init__(self):
         super(Management, self).__init__()
@@ -14,10 +15,9 @@ class Management(QWidget):
         self.account_plus_button = QPushButton('계정 추가')
         self.riot_start_button = QPushButton('게임 실행')
 
-        self.scorll_area = QScrollArea()
+        self.scroll_area = QScrollArea()
         self.list_account_widget = QWidget()
-        self.scorll_area.setWidget(self.list_account_widget)
-        
+        self.scroll_area.setWidget(self.list_account_widget)
 
         self._init_widget()
         self._init_ui()
@@ -27,20 +27,18 @@ class Management(QWidget):
         self.setLayout(self.main_layout)
 
         self.main_layout.addLayout(self.button_layout)
-        self.main_layout.addWidget(self.scorll_area)
+        self.main_layout.addWidget(self.scroll_area)
 
         # button layout
         self.button_layout.addWidget(self.account_plus_button, Qt.AlignTop)
-        self.button_layout.addSpacerItem(QSpacerItem(20,200))
+        self.button_layout.addSpacerItem(QSpacerItem(20, 200))
         self.button_layout.addWidget(self.riot_start_button, Qt.AlignBottom)
 
-        
-        
     def _init_widget(self):
         # ----- button -----
         # account plus button
         # riot start button
-        self.riot_start_button.setSizePolicy(QSizePolicy.Minimum,QSizePolicy.Minimum)
+        self.riot_start_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.riot_start_button.setMaximumHeight(70)
 
 

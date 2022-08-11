@@ -23,4 +23,5 @@ def get_path() -> str:
     :return:
         riot_path
     """
-    return default_value_df.loc['riot_path', 'data']
+    path = default_value_df.loc['riot_path', 'data']
+    return path

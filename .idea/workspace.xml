@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="다시 재실행 시키게 뭐시기함">
-      <change afterPath="$PROJECT_DIR$/GuiClassFile/AccountManagementGuiClass.py" afterDir="false" />
+    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="README csv 관련 파일 설명 작성">
+      <change afterPath="$PROJECT_DIR$/GuiClassFile/AccountMangmentGui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csv_file/accountCsvData.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CsvDataProcessingModul.py" beforeDir="false" afterPath="$PROJECT_DIR$/CsvDataProcessingModule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuiClassFile/MainGuiClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/MainGui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ImageFIndModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImageFIndModule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CsvDataProcessingModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/CsvDataProcessingModule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GuiClassFile/AccountManagementGuiClass.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GuiClassFile/MainGui.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/MainGui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/csv_file/defaultValueCsvData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csv_file/defaultValueCsvData.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -55,7 +56,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.main_gui">
+  <component name="RunManager" selected="Python.account gui">
     <configuration name="ErrorPage" type="PythonConfigurationType" factoryName="Python">
       <module name="RiotAutoLogin" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -90,6 +91,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RiotRun.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="account gui" type="PythonConfigurationType" factoryName="Python">
+      <module name="RiotAutoLogin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\GuiClassFile\MainGui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -182,13 +204,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name=" 내 Sphinx 작업" type="docs" factoryName="Sphinx task" nameIsGenerated="true">
+      <module name="RiotAutoLogin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="html" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
     <list>
+      <item itemvalue="Python.account gui" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.main_gui" />
       <item itemvalue="Python.ErrorPage" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.RIotRun" />
       <item itemvalue="Python.csvdataprocessing" />
+      <item itemvalue="Python 문서. 내 Sphinx 작업" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
@@ -263,7 +303,35 @@
       <option name="project" value="LOCAL" />
       <updated>1660056018237</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="계정추가 기초작업">
+      <created>1660135127168</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1660135127168</updated>
+    </task>
+    <task id="LOCAL-00011" summary="오타수정">
+      <created>1660225507933</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1660225507933</updated>
+    </task>
+    <task id="LOCAL-00012" summary="오타수정">
+      <created>1660225564394</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1660225564394</updated>
+    </task>
+    <task id="LOCAL-00013" summary="README csv 관련 파일 설명 작성">
+      <created>1660271981615</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1660271981615</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -287,6 +355,9 @@
     <MESSAGE value="데이터 저장 및 호출기능 추가&#10;기능에 추가" />
     <MESSAGE value="RiotRunModule.py getpath 기능 연동 및 함수화" />
     <MESSAGE value="다시 재실행 시키게 뭐시기함" />
-    <option name="LAST_COMMIT_MESSAGE" value="다시 재실행 시키게 뭐시기함" />
+    <MESSAGE value="계정추가 기초작업" />
+    <MESSAGE value="오타수정" />
+    <MESSAGE value="README csv 관련 파일 설명 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="README csv 관련 파일 설명 작성" />
   </component>
 </project>

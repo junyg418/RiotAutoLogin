@@ -20,11 +20,11 @@ class MainWindow(QWidget):
         self.account_list_widget = QWidget()  # 계정 표시 나열되는 위젯
         self.scroll_area.setWidget(self.account_list_widget)
 
-        self.account_list_layout = QVBoxLayout()  # -> account_list_widget 에 포함
+        self.account_list_layout = QHBoxLayout()  # -> account_list_widget 에 포함
 
+        self.show()
         self._init_widget()
         self._init_ui()
-        self.show()
 
     def _init_ui(self):
         # main layout
@@ -36,11 +36,15 @@ class MainWindow(QWidget):
         # button layout
         self.button_layout.addWidget(self.account_plus_button, Qt.AlignTop)
         self.button_layout.addWidget(self.setting_button, Qt.AlignCenter)
-        self.button_layout.addSpacerItem(QSpacerItem(20, 140))
+        self.button_layout.addSpacerItem(QSpacerItem(5, 140))
         self.button_layout.addWidget(self.riot_start_button, Qt.AlignBottom)
 
         # list account widget
         self.account_list_widget.setLayout(self.account_list_layout)
+        # list account layout
+
+        for i in range(10):
+            self.account_list_layout.addWidget(AccountWidget(i, 1234, 1234))
 
     def _init_widget(self):
         # ----- button -----
@@ -55,8 +59,9 @@ class MainWindow(QWidget):
         self.riot_start_button.setMaximumHeight(70)
 
     def append_account_to_layout(self):
-
         pass
+
+
 # Todo 그리드에 idx = 0 라디오버튼(0,0) , AccountWidget(인덱스0 ~~ )(0,1) -> idx=1 라디오 (1,0 형식으로 예상
 class AccountWidget(QWidget):
     """
@@ -65,16 +70,19 @@ class AccountWidget(QWidget):
 
     def __init__(self, account_idx: int, account_id: str, account_pw: str):
         super().__init__()
+        # self.setFixedSize(100,25)
         self.account_idx = account_idx
         self.id = account_id
         self.pw = account_pw
 
         self.main_layout = QGridLayout()
 
-        self.id_label = QLabel()
+        self.id_label = QLabel('아이디')
         self.edit_password_button = QPushButton('+')
         self.delete_account_button = QPushButton('-')
-        self.show()
+
+        self._init_widget()
+        self._init_ui()
 
     def _init_ui(self):
         # main layout
@@ -97,8 +105,8 @@ class AccountWidget(QWidget):
 
 def main_gui_open() -> None:
     app = QApplication(sys.argv)
-    # widget = MainWindow()
-    widget = AccountWidget(0, '1234', '1234')
+    widget = MainWindow()
+    # widget = AccountWidget(0, '1234', '1234')
     sys.exit(app.exec())
 
 

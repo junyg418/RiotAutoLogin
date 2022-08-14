@@ -8,6 +8,7 @@ class MainWindow(QWidget):
         super(MainWindow, self).__init__()
         self.setWindowTitle('라이엇 자동 로그인')
         self.setGeometry(300, 300, 300, 350)
+        self.setFixedSize(300, 350)
 
         self.main_layout = QHBoxLayout()
         self.button_layout = QVBoxLayout()
@@ -18,13 +19,12 @@ class MainWindow(QWidget):
 
         self.scroll_area = QScrollArea()
         self.account_list_widget = QWidget()  # 계정 표시 나열되는 위젯
-        self.scroll_area.setWidget(self.account_list_widget)
 
-        self.account_list_layout = QHBoxLayout()  # -> account_list_widget 에 포함
+        self.account_list_layout = QVBoxLayout()  # -> account_list_widget 에 포함
 
-        self.show()
         self._init_widget()
         self._init_ui()
+        self.show()
 
     def _init_ui(self):
         # main layout
@@ -33,7 +33,7 @@ class MainWindow(QWidget):
         self.main_layout.addLayout(self.button_layout)
         self.main_layout.addWidget(self.scroll_area)
 
-        # button layout
+        # button layout -> (left_layout)
         self.button_layout.addWidget(self.account_plus_button, Qt.AlignTop)
         self.button_layout.addWidget(self.setting_button, Qt.AlignCenter)
         self.button_layout.addSpacerItem(QSpacerItem(5, 140))
@@ -41,10 +41,9 @@ class MainWindow(QWidget):
 
         # list account widget
         self.account_list_widget.setLayout(self.account_list_layout)
-        # list account layout
 
-        for i in range(10):
-            self.account_list_layout.addWidget(AccountWidget(i, 1234, 1234))
+        # list account layout
+        self.set_account_layout()
 
     def _init_widget(self):
         # ----- button -----
@@ -57,6 +56,16 @@ class MainWindow(QWidget):
         # riot start button
         self.riot_start_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.riot_start_button.setMaximumHeight(70)
+
+    def set_account_layout(self) -> None:
+        """
+        account_layout 에 들어가는 위젯들을 설정시켜주는 함수
+        :return:
+            self.scroll_area.setWidget(self.account_list_widget) -> 위젯 scroll_area 에 set 시킴
+        """
+        for i in range(10):
+            self.account_list_layout.addWidget(AccountWidget(i, 1234, 1234))
+        return self.scroll_area.setWidget(self.account_list_widget)
 
     def append_account_to_layout(self):
         pass
@@ -77,7 +86,7 @@ class AccountWidget(QWidget):
 
         self.main_layout = QGridLayout()
 
-        self.id_label = QLabel('아이디')
+        self.id_label = QLabel(str(self.id))
         self.edit_password_button = QPushButton('+')
         self.delete_account_button = QPushButton('-')
 
@@ -99,7 +108,10 @@ class AccountWidget(QWidget):
         self.main_layout.setColumnStretch(2, 1)
         # edit_password_button
         # TODO: edit_password_button -> click -> QDialog: password 변경 gui open
+        # TODO: 버튼 크기조정
+        self.edit_password_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         # delete_account_button
+        self.delete_account_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         # TODO: 구상 아직...
 
 

@@ -46,6 +46,13 @@ def click_password(block_location: tuple) -> None:
     """
     pyautogui.click((block_location[0] + 200, block_location[1] + 320))
 
+def run(id:str, password:str) -> None:
+    location = find_locate()
+    click_id(location)
+    pyautogui.typewrite(id)
+    click_password(location)
+    pyautogui.typewrite(password)
+
 
 if __name__ == '__main__':
     locate = find_locate()

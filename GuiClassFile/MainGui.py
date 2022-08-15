@@ -1,4 +1,6 @@
 import sys
+import RiotRunModule
+import ImageFIndModule
 from PySide6.QtWidgets import *
 from PySide6.QtCore import Qt
 
@@ -69,6 +71,14 @@ class MainWindow(QWidget):
 
     def append_account_to_layout(self):
         pass
+    
+    def start_riot(self):
+        return RiotRunModule.run_riot_clint()
+    
+    def run_ImageFindModule(self): #TODO *************************************** id get해야함
+        ImageFIndModule.run()
+        
+
 
 
 # Todo 그리드에 idx = 0 라디오버튼(0,0) , AccountWidget(인덱스0 ~~ )(0,1) -> idx=1 라디오 (1,0 형식으로 예상

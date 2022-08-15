@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="README csv 관련 파일 설명 작성">
-      <change afterPath="$PROJECT_DIR$/GuiClassFile/AccountMangmentGui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/csv_file/accountCsvData.csv" afterDir="false" />
+    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="account list widget subwidget안보임 수정 및 크기 고정, 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CsvDataProcessingModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/CsvDataProcessingModule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuiClassFile/AccountManagementGuiClass.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuiClassFile/MainGui.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/MainGui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csv_file/defaultValueCsvData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csv_file/defaultValueCsvData.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -331,7 +325,35 @@
       <option name="project" value="LOCAL" />
       <updated>1660271981615</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="CsvDataProcessingModule.py&#10;MainGui 사용 함수 3개 제작 및 TODO 추가">
+      <created>1660278003287</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1660278003287</updated>
+    </task>
+    <task id="LOCAL-00015" summary="파일 이름 변경&#10;AccountManagementGuiClass.py -&gt; MainGui.py&#10;여러 기능들 추가">
+      <created>1660278049171</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1660278049171</updated>
+    </task>
+    <task id="LOCAL-00016" summary="변경사항">
+      <created>1660278075852</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1660278075852</updated>
+    </task>
+    <task id="LOCAL-00017" summary="account list widget subwidget안보임 수정 및 크기 고정, 수정">
+      <created>1660459247215</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1660459247215</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -358,6 +380,10 @@
     <MESSAGE value="계정추가 기초작업" />
     <MESSAGE value="오타수정" />
     <MESSAGE value="README csv 관련 파일 설명 작성" />
-    <option name="LAST_COMMIT_MESSAGE" value="README csv 관련 파일 설명 작성" />
+    <MESSAGE value="CsvDataProcessingModule.py&#10;MainGui 사용 함수 3개 제작 및 TODO 추가" />
+    <MESSAGE value="파일 이름 변경&#10;AccountManagementGuiClass.py -&gt; MainGui.py&#10;여러 기능들 추가" />
+    <MESSAGE value="변경사항" />
+    <MESSAGE value="account list widget subwidget안보임 수정 및 크기 고정, 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="account list widget subwidget안보임 수정 및 크기 고정, 수정" />
   </component>
 </project>

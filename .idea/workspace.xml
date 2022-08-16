@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="account list widget subwidget안보임 수정 및 크기 고정, 수정">
+    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="README 경고 작성">
+      <change beforePath="$PROJECT_DIR$/.idea/RiotAutoLogin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RiotAutoLogin.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CsvDataProcessingModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/CsvDataProcessingModule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GuiClassFile/MainGui.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/MainGui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv_file/accountCsvData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csv_file/accountCsvData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv_file/defaultValueCsvData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csv_file/defaultValueCsvData.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +54,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.account gui">
+  <component name="RunManager" selected="Python.main_gui">
     <configuration name="ErrorPage" type="PythonConfigurationType" factoryName="Python">
       <module name="RiotAutoLogin" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -84,7 +88,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RiotRun.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RiotRunModule.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -168,7 +172,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\GuiClassFile\MainGui.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GuiClassFile/MainGui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -353,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660459247215</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="README 경고 작성">
+      <created>1660628866833</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1660628866833</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -384,6 +395,7 @@
     <MESSAGE value="파일 이름 변경&#10;AccountManagementGuiClass.py -&gt; MainGui.py&#10;여러 기능들 추가" />
     <MESSAGE value="변경사항" />
     <MESSAGE value="account list widget subwidget안보임 수정 및 크기 고정, 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="account list widget subwidget안보임 수정 및 크기 고정, 수정" />
+    <MESSAGE value="README 경고 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="README 경고 작성" />
   </component>
 </project>

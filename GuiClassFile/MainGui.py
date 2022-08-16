@@ -1,8 +1,21 @@
 import sys
-import RiotRunModule
-import ImageFIndModule
+import os
 from PySide6.QtWidgets import *
 from PySide6.QtCore import Qt
+
+
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+import ImageFIndModule
+# from RiotRunModule import run_riot_clint
+from CsvDataProcessingModule import get_len_account, id_to_list, get_account_default, set_account_default, get_password
+
+
+# def start_riot():
+#     return run_riot_clint()
+
+
+# def run_ImageFindModule():  # TODO *************************************** id get해야함
+#     ImageFIndModule.run()
 
 
 class MainWindow(QWidget):
@@ -65,38 +78,43 @@ class MainWindow(QWidget):
         :return:
             self.scroll_area.setWidget(self.account_list_widget) -> 위젯 scroll_area 에 set 시킴
         """
-        for i in range(10):
-            self.account_list_layout.addWidget(AccountWidget(i, 1234, 1234))
+        id_list = id_to_list()
+        for idx, id_value in enumerate(id_list):
+            self.account_list_layout.addWidget(AccountWidget(idx, id_value))
+
         return self.scroll_area.setWidget(self.account_list_widget)
 
     def append_account_to_layout(self):
         pass
-    
-    def start_riot(self):
-        return RiotRunModule.run_riot_clint()
-    
-    def run_ImageFindModule(self): #TODO *************************************** id get해야함
-        ImageFIndModule.run()
-        
 
+    def append_radiobtn_to_layout(self):
+        account_count = get_len_account()
+
+        for num in range(account_count):
+            QRadioButton()
 
 
 # Todo 그리드에 idx = 0 라디오버튼(0,0) , AccountWidget(인덱스0 ~~ )(0,1) -> idx=1 라디오 (1,0 형식으로 예상
+def get_password():
+    default_index = get_account_default()
+    password = get_password(default_index)
+    return password
+
+
 class AccountWidget(QWidget):
     """
     MainWindow.account_list_layout 에 포함되는 Widget
     """
-
-    def __init__(self, account_idx: int, account_id: str, account_pw: str):
+    #TODO 라디오 버튼끼리 연동
+    def __init__(self, account_idx: int, account_id: str):
         super().__init__()
         # self.setFixedSize(100,25)
         self.account_idx = account_idx
         self.id = account_id
-        self.pw = account_pw
 
         self.main_layout = QGridLayout()
 
-        self.id_label = QLabel(str(self.id))
+        self.id_button = QRadioButton(str(self.id))
         self.edit_password_button = QPushButton('+')
         self.delete_account_button = QPushButton('-')
 
@@ -107,21 +125,26 @@ class AccountWidget(QWidget):
         # main layout
         self.setLayout(self.main_layout)
 
-        self.main_layout.addWidget(self.id_label, 0, 0)
+        self.main_layout.setHorizontalSpacing(3)
+
+        self.main_layout.addWidget(self.id_button, 0, 0)
         self.main_layout.addWidget(self.edit_password_button, 0, 1)
         self.main_layout.addWidget(self.delete_account_button, 0, 2)
 
     def _init_widget(self):
         # main layout
-        self.main_layout.setColumnStretch(0, 2)
+        self.main_layout.setColumnStretch(0, 3)
         self.main_layout.setColumnStretch(1, 1)
         self.main_layout.setColumnStretch(2, 1)
+
         # edit_password_button
         # TODO: edit_password_button -> click -> QDialog: password 변경 gui open
-        # TODO: 버튼 크기조정
         self.edit_password_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        self.edit_password_button.setFixedSize(30, 30)
+
         # delete_account_button
         self.delete_account_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        self.delete_account_button.setFixedSize(30, 30)
         # TODO: 구상 아직...
 
 

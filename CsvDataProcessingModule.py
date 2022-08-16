@@ -44,7 +44,7 @@ def get_len_account() -> int:
     return account_len
 
 
-def df_id_to_list() -> list:
+def id_to_list() -> list:
     """
     계정들의 아이디를 리스트로 반환해주는 함수
     :return:
@@ -69,5 +69,42 @@ def select_idx_to_id(idx: int) -> 'str':
     return id_value, pw_value
 
 
+def get_account_default() -> int:
+    """
+    계정의 기본값을 가져오는 함수
+    :return:
+        계정의 기본값 -> index: int
+    """
+    default_data = default_value_df.loc['setting_account_idx', 'data']
+    return int(default_data)
+
+
+def set_account_default(value) -> None:
+    """
+    계정의 기본값이 바뀌었을 떄 변경해주는 함수
+    :param value:
+        변경된 index 데이터
+    :return:
+        None
+    """
+    default_value_df.loc['setting_account_idx', 'data'] = value
+    default_value_df.to_csv('./csv_file/defaultValueCsvData.csv', mode='w', header=False)
+
+
+def get_password(idx: int) -> str:
+    """
+    index 를 인자로 idx 순서의 비밀번호를 반환
+    :param idx:
+        index -> 데이터에 저장되어있는 아이디의 index
+    :return:
+        password
+    """
+    password = account_df.loc[int(idx), 'password']
+    return password
+
+
 if __name__ == '__main__':
-    select_idx_to_id(1)
+    # select_idx_to_id(1)
+    # print(get_password(0))
+    set_account_default(1)
+    print(type(get_account_default()))

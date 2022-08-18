@@ -28,10 +28,12 @@ class MainWindow(QWidget):
         self.main_layout = QHBoxLayout()
         self.button_layout = QVBoxLayout()
 
+        # button layout
         self.account_plus_button = QPushButton('계정 추가')
         self.setting_button = QPushButton('설정')
         self.riot_start_button = QPushButton('게임 실행')
 
+        # right_layout
         self.scroll_area = QScrollArea()
         self.account_list_widget = QWidget()  # 계정 표시 나열되는 위젯
 
@@ -84,15 +86,9 @@ class MainWindow(QWidget):
 
         return self.scroll_area.setWidget(self.account_list_widget)
 
-    def append_account_to_layout(self):
-        pass
-
-    def append_radiobtn_to_layout(self):
-        account_count = get_len_account()
-
-        for num in range(account_count):
-            QRadioButton()
-
+    def radio_button_clicked(self):
+        print(self.account_list_layout.children())
+    
 
 # Todo 그리드에 idx = 0 라디오버튼(0,0) , AccountWidget(인덱스0 ~~ )(0,1) -> idx=1 라디오 (1,0 형식으로 예상
 def get_password():
@@ -151,6 +147,7 @@ class AccountWidget(QWidget):
 def main_gui_open() -> None:
     app = QApplication(sys.argv)
     widget = MainWindow()
+    widget.radio_button_clicked()
     # widget = AccountWidget(0, '1234', '1234')
     sys.exit(app.exec())
 

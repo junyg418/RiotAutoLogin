@@ -86,8 +86,13 @@ class MainWindow(QWidget):
 
         return self.scroll_area.setWidget(self.account_list_widget)
 
-    def radio_button_clicked(self):
-        print(self.account_list_layout.children())
+    def get_AccountWidget(self) -> list:
+        """
+        계정들 리스트를 반환하는 함수
+        :return:
+            list -> AccountWidget
+        """
+        return self.account_list_widget.findChildren(AccountWidget)
     
 
 # Todo 그리드에 idx = 0 라디오버튼(0,0) , AccountWidget(인덱스0 ~~ )(0,1) -> idx=1 라디오 (1,0 형식으로 예상
@@ -147,7 +152,7 @@ class AccountWidget(QWidget):
 def main_gui_open() -> None:
     app = QApplication(sys.argv)
     widget = MainWindow()
-    widget.radio_button_clicked()
+    print(widget.get_AccountWidget())
     # widget = AccountWidget(0, '1234', '1234')
     sys.exit(app.exec())
 

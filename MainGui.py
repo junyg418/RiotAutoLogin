@@ -2,12 +2,11 @@ import sys
 import os
 from PySide6.QtWidgets import *
 from PySide6.QtCore import Qt
+from CsvDataProcessingModule import get_len_account, id_to_list, get_account_default, set_account_default, get_password
 
-
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+# sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 import ImageFIndModule
 # from RiotRunModule import run_riot_clint
-from CsvDataProcessingModule import get_len_account, id_to_list, get_account_default, set_account_default, get_password
 
 
 # def start_riot():
@@ -28,6 +27,8 @@ class MainWindow(QWidget):
         self.main_layout = QHBoxLayout()
         self.button_layout = QVBoxLayout()
 
+        self.id_button_group = QButtonGroup()
+
         # button layout
         self.account_plus_button = QPushButton('계정 추가')
         self.setting_button = QPushButton('설정')
@@ -41,6 +42,7 @@ class MainWindow(QWidget):
 
         self._init_widget()
         self._init_ui()
+        self.set_id_button_group()
         self.show()
 
     def _init_ui(self):
@@ -63,7 +65,9 @@ class MainWindow(QWidget):
         self.set_account_layout()
 
     def _init_widget(self):
-        # ----- button -----
+        # ----- Button Group -----
+        self.id_button_group.setExclusive(True)
+        # ----- Button -----
         # account plus button
         self.account_plus_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.account_plus_button.setMaximumHeight(40)
@@ -86,14 +90,31 @@ class MainWindow(QWidget):
 
         return self.scroll_area.setWidget(self.account_list_widget)
 
-    def get_AccountWidget(self) -> list:
+    def set_id_button_group(self) -> None:
+        """
+        id button group 에 버튼들 추가, 기본값 설정하는 함수
+        :return:
+            None
+        """
+        account_list = self.get_AccountWidget_list()
+        for class_element in account_list:
+            id_button = class_element.id_button
+            self.id_button_group.addButton(id_button)
+
+        default_account_button = account_list[get_account_default()].id_button
+        default_account_button.setChecked(True)
+        
+
+
+    # noinspection PyPep8Naming
+    def get_AccountWidget_list(self) -> list:
         """
         계정들 리스트를 반환하는 함수
         :return:
             list -> AccountWidget
         """
         return self.account_list_widget.findChildren(AccountWidget)
-    
+
 
 # Todo 그리드에 idx = 0 라디오버튼(0,0) , AccountWidget(인덱스0 ~~ )(0,1) -> idx=1 라디오 (1,0 형식으로 예상
 def get_password():
@@ -106,7 +127,8 @@ class AccountWidget(QWidget):
     """
     MainWindow.account_list_layout 에 포함되는 Widget
     """
-    #TODO 라디오 버튼끼리 연동
+
+    # TODO 라디오 버튼끼리 연동
     def __init__(self, account_idx: int, account_id: str):
         super().__init__()
         # self.setFixedSize(100,25)
@@ -148,11 +170,14 @@ class AccountWidget(QWidget):
         self.delete_account_button.setFixedSize(30, 30)
         # TODO: 구상 아직...
 
+    # def is_clicked(self):
+    #     self.id_button.
+
 
 def main_gui_open() -> None:
     app = QApplication(sys.argv)
     widget = MainWindow()
-    print(widget.get_AccountWidget())
+    print(widget.id_button_group)
     # widget = AccountWidget(0, '1234', '1234')
     sys.exit(app.exec())
 

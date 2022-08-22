@@ -2,19 +2,22 @@ import sys
 import os
 from PySide6.QtWidgets import *
 from PySide6.QtCore import Qt
-from CsvDataProcessingModule import get_len_account, id_to_list, get_account_default, set_account_default, get_password
+from CsvDataProcessingModule import get_len_account, id_to_list, get_account_default, set_account_default, get_password_to_id
 
-# sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 import ImageFIndModule
+
+
 # from RiotRunModule import run_riot_clint
 
 
-# def start_riot():
-#     return run_riot_clint()
-
-
-# def run_ImageFindModule():  # TODO *************************************** id get해야함
-#     ImageFIndModule.run()
+def click_riot_start_button() -> None:
+    """
+    riot_start_button click 할때 호출되는 함수
+    :return:
+        None
+    """
+    # run_riot_clint()
+    ImageFIndModule.run()
 
 
 class MainWindow(QWidget):
@@ -103,8 +106,6 @@ class MainWindow(QWidget):
 
         default_account_button = account_list[get_account_default()].id_button
         default_account_button.setChecked(True)
-        
-
 
     # noinspection PyPep8Naming
     def get_AccountWidget_list(self) -> list:
@@ -115,12 +116,16 @@ class MainWindow(QWidget):
         """
         return self.account_list_widget.findChildren(AccountWidget)
 
-
-# Todo 그리드에 idx = 0 라디오버튼(0,0) , AccountWidget(인덱스0 ~~ )(0,1) -> idx=1 라디오 (1,0 형식으로 예상
-def get_password():
-    default_index = get_account_default()
-    password = get_password(default_index)
-    return password
+    def get_username_password(self) -> tuple:
+        """
+        id, password 반환해주는 함수
+        :return:
+            (id, password) -> tuple
+        """
+        selected_button = self.id_button_group.checkedButton()
+        account_id = selected_button.text()
+        password = get_password_to_id(account_id)
+        return account_id, password
 
 
 class AccountWidget(QWidget):
@@ -170,15 +175,11 @@ class AccountWidget(QWidget):
         self.delete_account_button.setFixedSize(30, 30)
         # TODO: 구상 아직...
 
-    # def is_clicked(self):
-    #     self.id_button.
-
 
 def main_gui_open() -> None:
     app = QApplication(sys.argv)
     widget = MainWindow()
-    print(widget.id_button_group)
-    # widget = AccountWidget(0, '1234', '1234')
+    widget.get_password()
     sys.exit(app.exec())
 
 

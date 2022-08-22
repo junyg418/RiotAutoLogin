@@ -5,7 +5,7 @@ from GuiClassFile import PathErrorGui
 riot_clint_path = "C:\Riot Games\Riot Client\RiotClientServices.exe"
 
 
-def run_riot_clint() -> None:
+def run() -> None:
     path = get_path()  # import CsvDataProcessingModule
     try:
         subprocess.check_output(path, shell=True)
@@ -14,4 +14,4 @@ def run_riot_clint() -> None:
 
 
 if __name__ == '__main__':
-    run_riot_clint()
+    run()

@@ -2,12 +2,10 @@ import sys
 import os
 from PySide6.QtWidgets import *
 from PySide6.QtCore import Qt
-from CsvDataProcessingModule import get_len_account, id_to_list, get_account_default, set_account_default, get_password_to_id
+from CsvDataProcessingModule import id_to_list, get_account_default, set_account_default, get_password_to_id
 
 import ImageFIndModule
-
-
-# from RiotRunModule import run_riot_clint
+import RiotRunModule
 
 
 def click_riot_start_button() -> None:
@@ -16,7 +14,7 @@ def click_riot_start_button() -> None:
     :return:
         None
     """
-    # run_riot_clint()
+    RiotRunModule.run()
     ImageFIndModule.run()
 
 
@@ -133,7 +131,6 @@ class AccountWidget(QWidget):
     MainWindow.account_list_layout 에 포함되는 Widget
     """
 
-    # TODO 라디오 버튼끼리 연동
     def __init__(self, account_idx: int, account_id: str):
         super().__init__()
         # self.setFixedSize(100,25)
@@ -179,7 +176,6 @@ class AccountWidget(QWidget):
 def main_gui_open() -> None:
     app = QApplication(sys.argv)
     widget = MainWindow()
-    widget.get_password()
     sys.exit(app.exec())
 
 

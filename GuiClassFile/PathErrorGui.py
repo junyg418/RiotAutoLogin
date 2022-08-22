@@ -6,7 +6,7 @@ from PySide6.QtWidgets import *
 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from CsvDataProcessingModule import resetting_path
-from RiotRunModule import run_riot_clint
+
 """
 default_path = C:\Riot Games\Riot Client\RiotClientServices.exe
 """
@@ -61,7 +61,8 @@ class PathError(QWidget):
         if 'RiotClientServices.exe' in self.riot_path_lineEdit.text().split('/'):
             self.path_save()
             self.close()
-            run_riot_clint()
+            import RiotRunModule
+            RiotRunModule.run()
         else:
             self.status_display_label.setText('경로가 잘못되었습니다')
 

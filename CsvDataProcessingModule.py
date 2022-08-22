@@ -91,7 +91,7 @@ def set_account_default(value) -> None:
     default_value_df.to_csv('./csv_file/defaultValueCsvData.csv', mode='w', header=False)
 
 
-def get_password(idx: int) -> str:
+def get_password_to_idx(idx: int) -> str:
     """
     index 를 인자로 idx 순서의 비밀번호를 반환
     :param idx:
@@ -103,8 +103,18 @@ def get_password(idx: int) -> str:
     return password
 
 
+def get_password_to_id(account_id: str) -> str:
+    """
+    id를 입력받고 password를 반환하는 함수
+    :param account_id:
+        계정의 id -> str
+    :return:
+        계정의 password -> str
+    """
+    password = account_df[account_df['id'] == account_id].values.tolist()[0][1]
+    return password
+
+
 if __name__ == '__main__':
-    # select_idx_to_id(1)
-    # print(get_password(0))
-    set_account_default(1)
-    print(type(get_account_default()))
+    get_password_to_id('fgh235897')
+    # pass

@@ -8,14 +8,6 @@ import ImageFIndModule
 import RiotRunModule
 
 
-def click_riot_start_button() -> None:
-    """
-    riot_start_button click 할때 호출되는 함수
-    :return:
-        None
-    """
-    RiotRunModule.run()
-    ImageFIndModule.run()
 
 
 class MainWindow(QWidget):
@@ -41,9 +33,9 @@ class MainWindow(QWidget):
 
         self.account_list_layout = QVBoxLayout()  # -> account_list_widget 에 포함
 
-        self._init_widget()
         self._init_ui()
         self.set_id_button_group()
+        self._init_widget()
         self.show()
 
     def _init_ui(self):
@@ -72,12 +64,18 @@ class MainWindow(QWidget):
         # account plus button
         self.account_plus_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.account_plus_button.setMaximumHeight(40)
+
         # setting button
         self.setting_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.setting_button.setMaximumHeight(40)
+
         # riot start button
+        self.riot_start_button.clicked.connect(self.click_riot_start_button)
         self.riot_start_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.riot_start_button.setMaximumHeight(70)
+        
+        
+
 
     def set_account_layout(self) -> None:
         """
@@ -125,6 +123,16 @@ class MainWindow(QWidget):
         password = get_password_to_id(account_id)
         return account_id, password
 
+    def click_riot_start_button(self) -> None:
+        """
+        riot_start_button click 할때 호출되는 함수
+        :return:
+            None
+        """
+        print('실행합니다')
+        account_id, account_password = self.get_username_password()
+        RiotRunModule.run()
+        ImageFIndModule.run(account_id, account_password)
 
 class AccountWidget(QWidget):
     """

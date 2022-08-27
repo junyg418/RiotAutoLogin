@@ -1,9 +1,9 @@
 # 라이엇 자동 로그인
 
 __Riot Auto Login__  
-## <center> ※주의※ </center>
+## <center> ※주의 aution※ </center>
 ### 라이엇에 문의 결과 이 프로그램은 비인가 외부 프로그램으로 사용시 처벌을 받을 수 있습니다.  
-
+__As a result of contacting Riot, use of this program as an unauthorized external program may result in penalties.__
 ## 설명서
 
 ### accountCsvData.csv

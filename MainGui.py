@@ -4,6 +4,8 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import Qt
 from CsvDataProcessingModule import id_to_list, get_account_default, set_account_default, get_password_to_id
 
+from GuiClassFile import AccountAddGui
+
 import ImageFIndModule
 import RiotRunModule
 
@@ -62,6 +64,7 @@ class MainWindow(QWidget):
         self.id_button_group.setExclusive(True)
         # ----- Button -----
         # account plus button
+        self.account_plus_button.clicked.connect(self.clicked_account_plus_button)
         self.account_plus_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.account_plus_button.setMaximumHeight(40)
 
@@ -75,6 +78,12 @@ class MainWindow(QWidget):
         self.riot_start_button.setMaximumHeight(70)
         
         
+    def clicked_account_plus_button(self) -> None:
+        """
+        account_plus_button 의 click 시그널 발생시 호출되는 함수
+        """
+        account_add_gui = AccountAddGui.Account()
+        account_add_gui.exec()
 
 
     def set_account_layout(self) -> None:

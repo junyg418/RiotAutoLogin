@@ -11,7 +11,6 @@ class Account(QDialog):
         self.id_label = QLabel('Id')
         self.pw_label = QLabel('Pw')
         self.id_lineedit = QLineEdit()
-        self.id_lineedit.displayText()
         self.pw_lineedit = QLineEdit()
         
         self.accept_button = QPushButton('저장')
@@ -26,10 +25,8 @@ class Account(QDialog):
         self.main_layout.addWidget(self.pw_lineedit, 1, 1)
         self.main_layout.addWidget(self.accept_button, 0, 2)
 
-def open_account_append():
+
+if __name__ == '__main__':
     app = QApplication(sys.argv)
     widget = Account()
     sys.exit(app.exec())
-
-if __name__ == '__main__':
-    open_account_append()

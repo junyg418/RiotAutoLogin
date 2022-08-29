@@ -53,9 +53,8 @@ def run(user_id: str, user_password: str) -> None:
     pyautogui.typewrite(user_id)
     click_password(location)
     pyautogui.typewrite(user_password)
+    pyautogui.press('enter')
 
 
 if __name__ == '__main__':
-    locate = find_locate()
-    click_id(locate)
-    click_password(locate)
+    run('asdf', 'asf')

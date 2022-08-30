@@ -2,7 +2,7 @@ import sys
 import os
 from PySide6.QtWidgets import *
 from PySide6.QtCore import Qt
-from CsvDataProcessingModule import id_to_list, get_account_default, set_account_default, get_password_to_id
+from CsvDataProcessingModule import MainGuiCsvdataProcess
 
 from GuiClassFile import AccountAddGui
 
@@ -39,6 +39,7 @@ class MainWindow(QWidget):
         self.set_id_button_group()
         self._init_widget()
         self.show()
+        
 
     def _init_ui(self):
         # main layout
@@ -60,8 +61,6 @@ class MainWindow(QWidget):
         self.set_account_layout()
 
     def _init_widget(self):
-        # ----- Button Group -----
-        self.id_button_group.setExclusive(True)
         # ----- Button -----
         # account plus button
         self.account_plus_button.clicked.connect(self.clicked_account_plus_button)
@@ -77,13 +76,29 @@ class MainWindow(QWidget):
         self.riot_start_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.riot_start_button.setMaximumHeight(70)
         
+    def click_riot_start_button(self) -> None:
+        """
+        riot_start_button click 할때 호출되는 함수
+        :return:
+            None
+        """
+        # print('실행합니다')
+        account_id, account_password = self.get_username_password()
+        # print(f'ac:{account_id}, pw:{account_password}')
+        RiotRunModule.run()
+        ImageFIndModule.run(account_id, account_password)
         
+
     def clicked_account_plus_button(self) -> None:
         """
         account_plus_button 의 click 시그널 발생시 호출되는 함수
+        :return:
+            AccountAddGui show -> None
         """
         account_add_gui = AccountAddGui.Account()
         account_add_gui.exec()
+        self.clear_account_list_layout()
+        self.set_account_layout()
 
 
     def set_account_layout(self) -> None:
@@ -92,11 +107,12 @@ class MainWindow(QWidget):
         :return:
             self.scroll_area.setWidget(self.account_list_widget) -> 위젯 scroll_area 에 set 시킴
         """
-        id_list = id_to_list()
+        id_list = MainGuiCsvdataProcess.id_to_list()
         for idx, id_value in enumerate(id_list):
             self.account_list_layout.addWidget(AccountWidget(idx, id_value))
 
         return self.scroll_area.setWidget(self.account_list_widget)
+
 
     def set_id_button_group(self) -> None:
         """
@@ -104,12 +120,13 @@ class MainWindow(QWidget):
         :return:
             None
         """
+        self.id_button_group.setExclusive(True)
         account_list = self.get_AccountWidget_list()
         for class_element in account_list:
             id_button = class_element.id_button
             self.id_button_group.addButton(id_button)
 
-        default_account_button = account_list[get_account_default()].id_button
+        default_account_button = account_list[MainGuiCsvdataProcess.get_account_default()].id_button
         default_account_button.setChecked(True)
 
     # noinspection PyPep8Naming
@@ -129,19 +146,14 @@ class MainWindow(QWidget):
         """
         selected_button = self.id_button_group.checkedButton()
         account_id = selected_button.text()
-        password = get_password_to_id(account_id)
+        password = MainGuiCsvdataProcess.get_password_to_id(account_id)
         return account_id, password
 
-    def click_riot_start_button(self) -> None:
-        """
-        riot_start_button click 할때 호출되는 함수
-        :return:
-            None
-        """
-        print('실행합니다')
-        account_id, account_password = self.get_username_password()
-        RiotRunModule.run()
-        ImageFIndModule.run(account_id, account_password)
+    def clear_account_list_layout(self):
+        while self.account_list_layout.count():
+            child = self.account_list_layout.takeAt(0)
+            if child.widget():
+                child.widget().deleteLater()
 
 class AccountWidget(QWidget):
     """

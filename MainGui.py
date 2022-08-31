@@ -1,5 +1,6 @@
 import sys
 import os
+import time
 from PySide6.QtWidgets import *
 from PySide6.QtCore import Qt
 from CsvDataProcessingModule import MainGuiCsvdataProcess
@@ -8,8 +9,6 @@ from GuiClassFile import AccountAddGui
 
 import ImageFIndModule
 import RiotRunModule
-
-
 
 
 class MainWindow(QWidget):
@@ -22,8 +21,6 @@ class MainWindow(QWidget):
         self.main_layout = QHBoxLayout()
         self.button_layout = QVBoxLayout()
 
-        self.id_button_group = QButtonGroup()
-
         # button layout
         self.account_plus_button = QPushButton('계정 추가')
         self.setting_button = QPushButton('설정')
@@ -31,15 +28,12 @@ class MainWindow(QWidget):
 
         # right_layout
         self.scroll_area = QScrollArea()
-        self.account_list_widget = QWidget()  # 계정 표시 나열되는 위젯
-
-        self.account_list_layout = QVBoxLayout()  # -> account_list_widget 에 포함
+        self.account_list_widget = AccountWidget()  # 계정 표시 나열되는 위젯
 
         self._init_ui()
-        self.set_id_button_group()
         self._init_widget()
+        self.set_AccountWidget()
         self.show()
-        
 
     def _init_ui(self):
         # main layout
@@ -53,12 +47,6 @@ class MainWindow(QWidget):
         self.button_layout.addWidget(self.setting_button, Qt.AlignCenter)
         self.button_layout.addSpacerItem(QSpacerItem(5, 140))
         self.button_layout.addWidget(self.riot_start_button, Qt.AlignBottom)
-
-        # list account widget
-        self.account_list_widget.setLayout(self.account_list_layout)
-
-        # list account layout
-        self.set_account_layout()
 
     def _init_widget(self):
         # ----- Button -----
@@ -75,19 +63,20 @@ class MainWindow(QWidget):
         self.riot_start_button.clicked.connect(self.click_riot_start_button)
         self.riot_start_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.riot_start_button.setMaximumHeight(70)
-        
+
+    def set_AccountWidget(self):
+        return self.scroll_area.setWidget(self.account_list_widget)
+
     def click_riot_start_button(self) -> None:
         """
         riot_start_button click 할때 호출되는 함수
         :return:
             None
         """
-        # print('실행합니다')
         account_id, account_password = self.get_username_password()
         # print(f'ac:{account_id}, pw:{account_password}')
         RiotRunModule.run()
         ImageFIndModule.run(account_id, account_password)
-        
 
     def clicked_account_plus_button(self) -> None:
         """
@@ -97,9 +86,40 @@ class MainWindow(QWidget):
         """
         account_add_gui = AccountAddGui.Account()
         account_add_gui.exec()
-        self.clear_account_list_layout()
-        self.set_account_layout()
+        time.sleep(10)
+        self.new_account_list_widget()
 
+
+    def new_account_list_widget(self):
+        print('생성')
+        self.account_list_widget.clear_account_list_layout()
+        self.account_list_widget.deleteLater()
+        self.account_list_widget = AccountWidget()
+        return self.set_AccountWidget()
+
+
+    def get_username_password(self) -> tuple:
+        """
+        id, password 반환해주는 함수
+        :return:
+            (id, password) -> tuple
+        """
+        selected_button = self.account_list_widget.id_button_group.checkedButton()
+        account_id = selected_button.text()
+        password = MainGuiCsvdataProcess.get_password_to_id(account_id)
+        return account_id, password
+
+
+class AccountWidget(QWidget):
+    def __init__(self):
+        super(AccountWidget, self).__init__()
+        self.account_list_layout = QVBoxLayout()
+        self.setLayout(self.account_list_layout)
+
+        self.id_button_group = QButtonGroup()
+
+        self.set_account_layout()
+        self.set_id_button_group()
 
     def set_account_layout(self) -> None:
         """
@@ -109,10 +129,7 @@ class MainWindow(QWidget):
         """
         id_list = MainGuiCsvdataProcess.id_to_list()
         for idx, id_value in enumerate(id_list):
-            self.account_list_layout.addWidget(AccountWidget(idx, id_value))
-
-        return self.scroll_area.setWidget(self.account_list_widget)
-
+            self.account_list_layout.addWidget(AccountCell(idx, id_value))
 
     def set_id_button_group(self) -> None:
         """
@@ -120,13 +137,16 @@ class MainWindow(QWidget):
         :return:
             None
         """
+        # TODO print()삭제
         self.id_button_group.setExclusive(True)
+
         account_list = self.get_AccountWidget_list()
         for class_element in account_list:
             id_button = class_element.id_button
             self.id_button_group.addButton(id_button)
 
-        default_account_button = account_list[MainGuiCsvdataProcess.get_account_default()].id_button
+        default_button_idx = MainGuiCsvdataProcess.get_account_default()
+        default_account_button = account_list[default_button_idx].id_button
         default_account_button.setChecked(True)
 
     # noinspection PyPep8Naming
@@ -136,26 +156,16 @@ class MainWindow(QWidget):
         :return:
             list -> AccountWidget
         """
-        return self.account_list_widget.findChildren(AccountWidget)
-
-    def get_username_password(self) -> tuple:
-        """
-        id, password 반환해주는 함수
-        :return:
-            (id, password) -> tuple
-        """
-        selected_button = self.id_button_group.checkedButton()
-        account_id = selected_button.text()
-        password = MainGuiCsvdataProcess.get_password_to_id(account_id)
-        return account_id, password
+        return self.findChildren(AccountCell)
 
     def clear_account_list_layout(self):
-        while self.account_list_layout.count():
-            child = self.account_list_layout.takeAt(0)
-            if child.widget():
-                child.widget().deleteLater()
+        for idx in range(self.account_list_layout.count()):
+            widget = self.account_list_layout.itemAt(idx).widget()
+            widget.deleteLater()
+            del widget
 
-class AccountWidget(QWidget):
+
+class AccountCell(QWidget):
     """
     MainWindow.account_list_layout 에 포함되는 Widget
     """

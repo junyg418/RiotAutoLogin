@@ -1,9 +1,9 @@
 import pandas as pd
 
-default_value_df = pd.read_csv('./csv_file/defaultValueCsvData.csv', header=None, names=['name', 'data'])
-default_value_df.set_index('name', inplace=True)
+# default_value_df = pd.read_csv('./csv_file/defaultValueCsvData.csv', header=None, names=['name', 'data'])
+# default_value_df.set_index('name', inplace=True)
 
-account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
+# account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
 
 # --------------- RiotRunModule ---------------
 
@@ -17,6 +17,9 @@ def resetting_path(path) -> None:
     :return:
         None
     """
+    default_value_df = pd.read_csv('./csv_file/defaultValueCsvData.csv', header=None, names=['name', 'data'])
+    default_value_df.set_index('name', inplace=True)
+
     default_value_df.loc['riot_path', 'data'] = path
     default_value_df.to_csv('./csv_file/defaultValueCsvData.csv', mode='w', header=False)
 
@@ -27,6 +30,9 @@ def get_path() -> str:
     :return:
         riot_path
     """
+    default_value_df = pd.read_csv('./csv_file/defaultValueCsvData.csv', header=None, names=['name', 'data'])
+    default_value_df.set_index('name', inplace=True)
+    
     path = default_value_df.loc['riot_path', 'data']
     return path
 
@@ -49,6 +55,8 @@ class MainGuiCsvdataProcess:
         :return:
             account_len:int -> 계정의 개수
         """
+        account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
+
         account_len = len(account_df)
         return account_len
 
@@ -60,6 +68,8 @@ class MainGuiCsvdataProcess:
         :return:
             list -> 계정 id list
         """
+        account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
+
         id_df = account_df['id']
         id_list = id_df.tolist()
         return id_list
@@ -74,6 +84,8 @@ class MainGuiCsvdataProcess:
         :return:
             id, password : tuple
         """
+        account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
+
         account_value_df = account_df.iloc[idx]
         id_value = str(account_value_df.id)
         pw_value = str(account_value_df.password)
@@ -87,6 +99,9 @@ class MainGuiCsvdataProcess:
         :return:
             계정의 기본값 -> index: int
         """
+        default_value_df = pd.read_csv('./csv_file/defaultValueCsvData.csv', header=None, names=['name', 'data'])
+        default_value_df.set_index('name', inplace=True)
+        
         default_data = default_value_df.loc['setting_account_idx', 'data']
         return int(default_data)
 
@@ -100,6 +115,9 @@ class MainGuiCsvdataProcess:
         :return:
             None
         """
+        default_value_df = pd.read_csv('./csv_file/defaultValueCsvData.csv', header=None, names=['name', 'data'])
+        default_value_df.set_index('name', inplace=True)
+        
         default_value_df.loc['setting_account_idx', 'data'] = value
         default_value_df.to_csv('./csv_file/defaultValueCsvData.csv', mode='w', header=False)
 
@@ -113,6 +131,8 @@ class MainGuiCsvdataProcess:
         :return:
             password
         """
+        account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
+
         password = account_df.loc[int(idx), 'password']
         return password
 
@@ -126,6 +146,8 @@ class MainGuiCsvdataProcess:
         :return:
             계정의 password -> str
         """
+        account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
+
         password = account_df[account_df['id'] == account_id].values.tolist()[0][1]
         return password
 

@@ -15,8 +15,8 @@ class MainWindow(QWidget):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setWindowTitle('라이엇 자동 로그인')
-        self.setGeometry(300, 300, 300, 350)
-        self.setFixedSize(300, 350)
+        self.setGeometry(300, 300, 250, 300)
+        self.setFixedSize(270, 300)
 
         self.main_layout = QHBoxLayout()
         self.button_layout = QVBoxLayout()
@@ -45,7 +45,7 @@ class MainWindow(QWidget):
         # button layout -> (left_layout)
         self.button_layout.addWidget(self.account_plus_button, Qt.AlignTop)
         self.button_layout.addWidget(self.setting_button, Qt.AlignCenter)
-        self.button_layout.addSpacerItem(QSpacerItem(5, 140))
+        self.button_layout.addSpacerItem(QSpacerItem(5, 100))
         self.button_layout.addWidget(self.riot_start_button, Qt.AlignBottom)
 
     def _init_widget(self):
@@ -89,14 +89,12 @@ class MainWindow(QWidget):
         time.sleep(10)
         self.new_account_list_widget()
 
-
     def new_account_list_widget(self):
         print('생성')
         self.account_list_widget.clear_account_list_layout()
         self.account_list_widget.deleteLater()
         self.account_list_widget = AccountWidget()
         return self.set_AccountWidget()
-
 
     def get_username_password(self) -> tuple:
         """
@@ -137,7 +135,6 @@ class AccountWidget(QWidget):
         :return:
             None
         """
-        # TODO print()삭제
         self.id_button_group.setExclusive(True)
 
         account_list = self.get_AccountWidget_list()
@@ -179,7 +176,6 @@ class AccountCell(QWidget):
         self.main_layout = QGridLayout()
 
         self.id_button = QRadioButton(str(self.id))
-        self.edit_password_button = QPushButton('+')
         self.delete_account_button = QPushButton('-')
 
         self._init_widget()
@@ -192,19 +188,12 @@ class AccountCell(QWidget):
         self.main_layout.setHorizontalSpacing(3)
 
         self.main_layout.addWidget(self.id_button, 0, 0)
-        self.main_layout.addWidget(self.edit_password_button, 0, 1)
-        self.main_layout.addWidget(self.delete_account_button, 0, 2)
+        self.main_layout.addWidget(self.delete_account_button, 0, 1)
 
     def _init_widget(self):
         # main layout
-        self.main_layout.setColumnStretch(0, 3)
+        self.main_layout.setColumnStretch(0, 5)
         self.main_layout.setColumnStretch(1, 1)
-        self.main_layout.setColumnStretch(2, 1)
-
-        # edit_password_button
-        # TODO: edit_password_button -> click -> QDialog: password 변경 gui open
-        self.edit_password_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        self.edit_password_button.setFixedSize(30, 30)
 
         # delete_account_button
         self.delete_account_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)

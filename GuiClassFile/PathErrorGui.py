@@ -22,7 +22,7 @@ class PathError(QWidget):
 
         self.main_layout = QGridLayout(self)
         self.riot_path_lineEdit = QLineEdit()
-        self.status_display_label = QLabel('라이엇 클라이언트 경로를 설정해주세요')
+        self.status_display_label = QLabel('라이엇 클라이언트의 경로를 설정해주세요!')
         self.setPath_button = QPushButton('설정')
         self.close_button = QPushButton('확인')
 
@@ -33,10 +33,10 @@ class PathError(QWidget):
         self.setLayout(self.main_layout)
 
         self.main_layout.addWidget(self.status_display_label, 0, 0, 1, 1)
-        self.main_layout.addWidget(self.setPath_button, 0, 1, 1, 1)
+        self.main_layout.addWidget(self.setPath_button, 0, 2, 1, 1)
 
         self.main_layout.addWidget(self.riot_path_lineEdit, 1, 0, 1, 2)
-        self.main_layout.addWidget(self.close_button, 1, 1, 1, 1)
+        self.main_layout.addWidget(self.close_button, 1, 2, 1, 1)
         self.main_layout.setColumnStretch(0, 2)
         self.main_layout.setRowStretch(1, 1)
 

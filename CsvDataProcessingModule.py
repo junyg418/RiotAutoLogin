@@ -51,6 +51,19 @@ def add_account(account_id: str, account_pw: str) -> None:
     changed_df = account_df.append({'id': account_id, 'password': account_pw}, ignore_index=True)
     changed_df.to_csv('./csv_file/accountCsvData.csv', mode='w', index=False, sep='/')
 
+def is_duplicate_value(account_id: str) -> bool:
+    """
+    아이디가 중복되는지 확인하는 함수
+    :return:
+        bool
+    """
+    account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
+    bool_list = account_df['id'].isin([account_id]).tolist()
+    
+    if True in bool_list:
+        return True
+    else: 
+        return False
 
 # --------------- MainGui ---------------
 
@@ -152,6 +165,5 @@ class MainGuiCsvDataProcess:
         password = account_df[account_df['id'] == account_id].values.tolist()[0][1]
         return password
 
-# if __name__ == '__main__':
-# get_password_to_id('fgh235897')
-# pass
+if __name__ == '__main__':
+    print(is_duplicate('12'))

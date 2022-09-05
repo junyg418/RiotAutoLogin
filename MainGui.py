@@ -1,9 +1,25 @@
 import sys
 import os
 import time
-from PySide6.QtWidgets import *
+from PySide6.QtWidgets import (
+    QWidget,
+    QDialog,
+    
+    QGridLayout,
+    QHBoxLayout,
+    QVBoxLayout,
+
+    QScrollArea,
+    QPushButton,
+    QRadioButton,
+    QSpacerItem,
+    QButtonGroup,
+
+    QSizePolicy,
+    QApplication
+)
 from PySide6.QtCore import Qt
-from CsvDataProcessingModule import MainGuiCsvdataProcess
+from CsvDataProcessingModule import MainGuiCsvDataProcess
 
 from GuiClassFile import AccountAddGui
 
@@ -65,6 +81,9 @@ class MainWindow(QWidget):
         self.riot_start_button.setMaximumHeight(70)
 
     def set_AccountWidget(self):
+        """
+        AccountWidget 을 scroll_area에 setWidget하는 함수
+        """
         return self.scroll_area.setWidget(self.account_list_widget)
 
     def click_riot_start_button(self) -> None:
@@ -74,7 +93,6 @@ class MainWindow(QWidget):
             None
         """
         account_id, account_password = self.get_username_password()
-        # print(f'ac:{account_id}, pw:{account_password}')
         RiotRunModule.run()
         ImageFIndModule.run(account_id, account_password)
 
@@ -90,7 +108,9 @@ class MainWindow(QWidget):
         self.new_account_list_widget()
 
     def new_account_list_widget(self):
-        print('생성')
+        """
+        account_list_widget 을 새로운 인스턴트로 갱신하는 함수
+        """
         self.account_list_widget.clear_account_list_layout()
         self.account_list_widget.deleteLater()
         self.account_list_widget = AccountWidget()
@@ -104,7 +124,7 @@ class MainWindow(QWidget):
         """
         selected_button = self.account_list_widget.id_button_group.checkedButton()
         account_id = selected_button.text()
-        password = MainGuiCsvdataProcess.get_password_to_id(account_id)
+        password = MainGuiCsvDataProcess.get_password_to_id(account_id)
         return account_id, password
 
 
@@ -125,7 +145,7 @@ class AccountWidget(QWidget):
         :return:
             self.scroll_area.setWidget(self.account_list_widget) -> 위젯 scroll_area 에 set 시킴
         """
-        id_list = MainGuiCsvdataProcess.id_to_list()
+        id_list = MainGuiCsvDataProcess.id_to_list()
         for idx, id_value in enumerate(id_list):
             self.account_list_layout.addWidget(AccountCell(idx, id_value))
 
@@ -142,7 +162,7 @@ class AccountWidget(QWidget):
             id_button = class_element.id_button
             self.id_button_group.addButton(id_button)
 
-        default_button_idx = MainGuiCsvdataProcess.get_account_default()
+        default_button_idx = MainGuiCsvDataProcess.get_account_default()
         default_account_button = account_list[default_button_idx].id_button
         default_account_button.setChecked(True)
 
@@ -156,6 +176,10 @@ class AccountWidget(QWidget):
         return self.findChildren(AccountCell)
 
     def clear_account_list_layout(self):
+        """
+        account_list_layout 에 있는 위젯들을 데이터상 전부 제거하는 함수:
+            -> 새롭게 인스턴트 생성시 똑같은 속성의 인스턴트가 중복되는 것을 방지하기 위해
+        """
         for idx in range(self.account_list_layout.count()):
             widget = self.account_list_layout.itemAt(idx).widget()
             widget.deleteLater()
@@ -199,6 +223,11 @@ class AccountCell(QWidget):
         self.delete_account_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.delete_account_button.setFixedSize(30, 30)
         # TODO: 구상 아직...
+
+
+class SettingDialog(QDialog):
+    def __int__(self):
+        super(SettingDialog, self).__int__()
 
 
 def main_gui_open() -> None:

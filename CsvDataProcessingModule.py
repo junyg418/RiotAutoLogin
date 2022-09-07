@@ -165,5 +165,16 @@ class MainGuiCsvDataProcess:
         password = account_df[account_df['id'] == account_id].values.tolist()[0][1]
         return password
 
+    
+    # ---- AccountCell -----
+    @classmethod
+    def delete_account(cls, idx: int) -> None:
+        account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
+        print(account_df)
+        delete_account = account_df.drop(idx, inplace=False).reset_index()
+        delete_account.to_csv('./csv_file/accountCsvData.csv', mode='w', index=False, sep='/')
+
+
+
 if __name__ == '__main__':
-    print(is_duplicate('12'))
+    MainGuiCsvDataProcess.delete_account(0)

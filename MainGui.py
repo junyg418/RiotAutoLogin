@@ -1,10 +1,9 @@
 import sys
-import os
-import time
+from time import sleep
 from PySide6.QtWidgets import (
     QWidget,
     QDialog,
-    
+
     QGridLayout,
     QHBoxLayout,
     QVBoxLayout,
@@ -18,7 +17,7 @@ from PySide6.QtWidgets import (
     QSizePolicy,
     QApplication
 )
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QObject, Signal
 from CsvDataProcessingModule import MainGuiCsvDataProcess
 
 from GuiClassFile import AccountAddGui
@@ -76,7 +75,7 @@ class MainWindow(QWidget):
         self.setting_button.setMaximumHeight(40)
 
         # riot start button
-        self.riot_start_button.clicked.connect(self.click_riot_start_button)
+        self.riot_start_button.clicked.connect(self.clicked_riot_start_button)
         self.riot_start_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.riot_start_button.setMaximumHeight(70)
 
@@ -86,7 +85,7 @@ class MainWindow(QWidget):
         """
         return self.scroll_area.setWidget(self.account_list_widget)
 
-    def click_riot_start_button(self) -> None:
+    def clicked_riot_start_button(self) -> None:
         """
         riot_start_button click 할때 호출되는 함수
         :return:
@@ -104,7 +103,7 @@ class MainWindow(QWidget):
         """
         account_add_gui = AccountAddGui.Account()
         account_add_gui.exec()
-        time.sleep(10)
+        sleep(10)
         self.new_account_list_widget()
 
     def new_account_list_widget(self):
@@ -116,13 +115,22 @@ class MainWindow(QWidget):
         self.account_list_widget = AccountWidget()
         return self.set_AccountWidget()
 
+    def get_selected_button(self) -> QPushButton:
+        """
+        현재 선택된 버튼을 반환해주는 함수
+        :return:
+            QPushButton
+        """
+        selected_button = self.account_list_widget.id_button_group.checkedButton()
+        return selected_button
+
     def get_username_password(self) -> tuple:
         """
         id, password 반환해주는 함수
         :return:
             (id, password) -> tuple
         """
-        selected_button = self.account_list_widget.id_button_group.checkedButton()
+        selected_button = self.get_selected_button()
         account_id = selected_button.text()
         password = MainGuiCsvDataProcess.get_password_to_id(account_id)
         return account_id, password
@@ -193,7 +201,6 @@ class AccountCell(QWidget):
 
     def __init__(self, account_idx: int, account_id: str):
         super().__init__()
-        # self.setFixedSize(100,25)
         self.account_idx = account_idx
         self.id = account_id
 
@@ -224,10 +231,12 @@ class AccountCell(QWidget):
         self.delete_account_button.setFixedSize(30, 30)
         # TODO: 구상 아직...
 
+    def delete_account(self):
+        MainGuiCsvDataProcess.delete_account(self.account_idx)
+        delete_signal = SettingDialogSignal()
 
-class SettingDialog(QDialog):
-    def __int__(self):
-        super(SettingDialog, self).__int__()
+class SettingDialogSignal(QDialog):
+    signal = Signal()
 
 
 def main_gui_open() -> None:

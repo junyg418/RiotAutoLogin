@@ -235,8 +235,11 @@ class AccountCell(QWidget):
         MainGuiCsvDataProcess.delete_account(self.account_idx)
         delete_signal = SettingDialogSignal()
 
+
 class SettingDialogSignal(QDialog):
     signal = Signal()
+    def reset_widget(self):
+        self.signal.emit()
 
 
 def main_gui_open() -> None:

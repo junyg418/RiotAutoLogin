@@ -173,8 +173,7 @@ class MainGuiCsvDataProcess:
         index를 통하여 accountCsvData 의 account 정보 ( 해당하는 행 )을 제거하는 함수
         """
         account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
-        print(account_df)
-        delete_account = account_df.drop(idx, inplace=False).reset_index()
+        delete_account = account_df.drop(idx, inplace=False).reset_index(drop=True)
         delete_account.to_csv('./csv_file/accountCsvData.csv', mode='w', index=False, sep='/')
 
 

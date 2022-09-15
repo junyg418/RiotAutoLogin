@@ -26,9 +26,19 @@ import ImageFIndModule
 import RiotRunModule
 
 
+class ResetSignal(QObject):
+    reset_signal = Signal()
+
+    def run(self):
+        self.reset_signal.emit()
+
+
 class MainWindow(QWidget):
     def __init__(self):
         super(MainWindow, self).__init__()
+        self.reset_signal_class = ResetSignal()
+        self.reset_signal_class.reset_signal.connect(self.new_account_list_widget)
+
         self.setWindowTitle('라이엇 자동 로그인')
         self.setGeometry(300, 300, 250, 300)
         self.setFixedSize(270, 300)
@@ -43,7 +53,7 @@ class MainWindow(QWidget):
 
         # right_layout
         self.scroll_area = QScrollArea()
-        self.account_list_widget = AccountWidget()  # 계정 표시 나열되는 위젯
+        self.account_list_widget = AccountWidget(self.reset_signal_class)  # 계정 표시 나열되는 위젯
 
         self._init_ui()
         self._init_widget()
@@ -112,7 +122,7 @@ class MainWindow(QWidget):
         """
         self.account_list_widget.clear_account_list_layout()
         self.account_list_widget.deleteLater()
-        self.account_list_widget = AccountWidget()
+        self.account_list_widget = AccountWidget(self.reset_signal_class)
         return self.set_AccountWidget()
 
     def get_selected_button(self) -> QPushButton:
@@ -137,8 +147,10 @@ class MainWindow(QWidget):
 
 
 class AccountWidget(QWidget):
-    def __init__(self):
+    def __init__(self, signal_class: ResetSignal):
         super(AccountWidget, self).__init__()
+        self.reset_signal_class = signal_class
+
         self.account_list_layout = QVBoxLayout()
         self.setLayout(self.account_list_layout)
 
@@ -155,7 +167,7 @@ class AccountWidget(QWidget):
         """
         id_list = MainGuiCsvDataProcess.id_to_list()
         for idx, id_value in enumerate(id_list):
-            self.account_list_layout.addWidget(AccountCell(idx, id_value))
+            self.account_list_layout.addWidget(AccountCell(idx, id_value, signal_class=self.reset_signal_class))
 
     def set_id_button_group(self) -> None:
         """
@@ -196,13 +208,23 @@ class AccountWidget(QWidget):
 
 class AccountCell(QWidget):
     """
+    MainWindow 의 상속되는 클라스
     MainWindow.account_list_layout 에 포함되는 Widget
     """
 
-    def __init__(self, account_idx: int, account_id: str):
+    def __init__(self, account_idx: int, account_id: str, *, signal_class: ResetSignal) -> object:
+        """
+        :param account_idx:
+            accountCsvData.csv 내부의 작성되어 있는 계정의 순서 index
+        :param account_id:
+            accountCsvData.csv 내부의 작성되어 있는 계정의 아이디
+        :param signal_class:
+            AccountWidget 을 초기화 하기 위한 reset signal -> MainWindow 에서 signal 받음
+        """
         super().__init__()
         self.account_idx = account_idx
         self.id = account_id
+        self.reset_signal_class = signal_class
 
         self.main_layout = QGridLayout()
 
@@ -227,19 +249,13 @@ class AccountCell(QWidget):
         self.main_layout.setColumnStretch(1, 1)
 
         # delete_account_button
+        self.delete_account_button.clicked.connect(self.delete_account)
         self.delete_account_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.delete_account_button.setFixedSize(30, 30)
-        # TODO: 구상 아직...
 
     def delete_account(self):
         MainGuiCsvDataProcess.delete_account(self.account_idx)
-        delete_signal = SettingDialogSignal()
-
-
-class SettingDialogSignal(QDialog):
-    signal = Signal()
-    def reset_widget(self):
-        self.signal.emit()
+        self.reset_signal_class.run()
 
 
 def main_gui_open() -> None:

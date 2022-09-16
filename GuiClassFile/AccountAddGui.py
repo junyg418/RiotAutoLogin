@@ -12,10 +12,15 @@ from PySide6.QtCore import Qt
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from CsvDataProcessingModule import add_account, is_duplicate_value
 
-class NoneValueError(Exception):pass
+
+class NoneValueError(Exception): pass
+
+
 # An error that occurs when there is no data value
 
-class OverlapValueError(Exception):pass
+class OverlapValueError(Exception): pass
+
+
 # An error that occurs when data values are duplicated
 
 
@@ -44,7 +49,7 @@ class Account(QDialog):
         self.main_layout.addWidget(self.id_lineedit, 0, 1)
         self.main_layout.addWidget(self.pw_lineedit, 1, 1)
         self.main_layout.addWidget(self.accept_button, 0, 2)
-    
+
     def clicked_accept_button(self):
         """
         accept_button 클릭시 호출
@@ -86,12 +91,12 @@ class Account(QDialog):
             두 칸이 비워져있을 경우: 종료
             한 칸만 비워져있을 경우: 에러 발생
         """
-        if self.account_id == "" and self.account_pw == "": # 두 칸다 비웠을 때
+        if self.account_id == "" and self.account_pw == "":  # 두 칸다 비웠을 때
             self.close()
 
-        elif self.account_id == "" or self.account_pw == "": # 한 칸만 비웠을 때
+        elif self.account_id == "" or self.account_pw == "":  # 한 칸만 비웠을 때
             raise NoneValueError
-            
+
     def close_dialog(self):
         """
         dialog 를 끝내는 함수
@@ -101,7 +106,7 @@ class Account(QDialog):
 
 
 class ErrorDialog(QDialog):
-    def __init__(self, error_message:str):
+    def __init__(self, error_message: str):
         super().__init__()
         self.error_message = error_message
 
@@ -117,11 +122,11 @@ class ErrorDialog(QDialog):
         self._init_ui()
         self._init_widget()
         self.show()
-    
+
     def _init_ui(self):
         self.main_layout.addWidget(self.message_label, 0, 0, 1, 3)
         self.main_layout.addWidget(self.close_button, 1, 2)
-    
+
     def _init_widget(self):
         # ----- message_label -----
         self.message_label.setAlignment(Qt.AlignCenter)
@@ -134,12 +139,9 @@ class ErrorDialog(QDialog):
         self.close()
 
 
-
-        
-        
-
 if __name__ == '__main__':
     from PySide6.QtWidgets import QApplication
+
     app = QApplication(sys.argv)
     widget = Account()
     # widget = ErrorDialog('에러메세지입니다 고쳐주세요')

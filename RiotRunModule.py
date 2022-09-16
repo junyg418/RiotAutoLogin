@@ -2,6 +2,7 @@ from os import startfile
 from CsvDataProcessingModule import get_path
 from GuiClassFile import PathErrorGui
 
+
 # riot_clint_path = "C:\Riot Games\Riot Client\RiotClientServices.ex"
 
 # 기존 run 함수 제거
@@ -23,7 +24,7 @@ def run() -> None:
     """
     path = get_path()
     try:
-        startfile(path) # -> os 모듈
+        startfile(path)  # -> os 모듈
     except FileNotFoundError:
         PathErrorGui.open_error_page()
 

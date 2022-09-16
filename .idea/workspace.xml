@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="계정 정보(아이디, 비밀번호)반환해주는 함수 작성">
+    <list default="true" id="feee6b47-f4c7-469e-af09-3836c5a9b0a3" name="변경" comment="delete 커스텀 시그널 연결&#10;(진짜 힘들었따)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuiClassFile/AccountMangmentGui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CsvDataProcessingModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/CsvDataProcessingModule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GuiClassFile/AccountAddGui.py" beforeDir="false" afterPath="$PROJECT_DIR$/GuiClassFile/AccountAddGui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RiotRunModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/RiotRunModule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv_file/accountCsvData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csv_file/accountCsvData.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,36 +50,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ImageFIndModule.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mikyoung\Desktop\RiotAutoLogin" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main_gui">
-    <configuration name="ErrorPage" type="PythonConfigurationType" factoryName="Python">
-      <module name="RiotAutoLogin" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GuiClassFile/PathErrorGui.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.csvdataprocessing">
     <configuration name="RIotRun" type="PythonConfigurationType" factoryName="Python">
       <module name="RiotAutoLogin" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -90,27 +72,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RiotRunModule.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="account gui" type="PythonConfigurationType" factoryName="Python">
-      <module name="RiotAutoLogin" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\MainGui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -140,27 +101,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="RiotAutoLogin" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="main_gui" type="PythonConfigurationType" factoryName="Python">
       <module name="RiotAutoLogin" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -174,27 +114,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\MainGui.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python">
-      <module name="RiotAutoLogin" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\mikyoung\Desktop\RiotAutoLogin\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -220,11 +139,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.account gui" />
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.main_gui" />
-      <item itemvalue="Python.ErrorPage" />
-      <item itemvalue="Python.test" />
       <item itemvalue="Python.RIotRun" />
       <item itemvalue="Python.csvdataprocessing" />
       <item itemvalue="Python 문서. 내 Sphinx 작업" />
@@ -386,7 +301,56 @@
       <option name="project" value="LOCAL" />
       <updated>1661168820701</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="AccountCell 의 비밀번호 수정 버튼 제거 및 전체적으로 간격 최적화">
+      <created>1662041210689</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1662041210690</updated>
+    </task>
+    <task id="LOCAL-00023" summary="계정 추가 함수 작성">
+      <created>1662100695969</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1662100695969</updated>
+    </task>
+    <task id="LOCAL-00024" summary="AccountAddGui 닫을 때 호출 함수 제작">
+      <created>1662100742917</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1662100742917</updated>
+    </task>
+    <task id="LOCAL-00025" summary="기존 ui close_button 위치 수정">
+      <created>1662208670497</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1662208670497</updated>
+    </task>
+    <task id="LOCAL-00026" summary="기존 run 함수 제거 및 os 모듈을 사용하여 다시 제작">
+      <created>1662208803014</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1662208803014</updated>
+    </task>
+    <task id="LOCAL-00027" summary="시그널 추가학습">
+      <created>1662734410169</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1662734410169</updated>
+    </task>
+    <task id="LOCAL-00028" summary="delete 커스텀 시그널 연결&#10;(진짜 힘들었따)">
+      <created>1663212833654</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1663212833654</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -402,7 +366,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first commit&#10;레파지토리 코드초기화 및 프로젝트 생성" />
     <MESSAGE value="여러 코드 수정" />
     <MESSAGE value="close_button 이벤트함수 추가" />
     <MESSAGE value="close_button 이벤트함수 추가&#10;PathErrorGui.py 닫을떄 이벤트&#10;경로 이상 추가" />
@@ -421,6 +384,13 @@
     <MESSAGE value="여러 기능들 추가&#10;-id layout 에 위젯 추가 및 불러오기&#10;-get_password 함수 작성&#10;&#10;-radiobutton&#10;-button size 변경&#10;-간격 조정" />
     <MESSAGE value="변수명 수정" />
     <MESSAGE value="계정 정보(아이디, 비밀번호)반환해주는 함수 작성" />
-    <option name="LAST_COMMIT_MESSAGE" value="계정 정보(아이디, 비밀번호)반환해주는 함수 작성" />
+    <MESSAGE value="AccountCell 의 비밀번호 수정 버튼 제거 및 전체적으로 간격 최적화" />
+    <MESSAGE value="계정 추가 함수 작성" />
+    <MESSAGE value="AccountAddGui 닫을 때 호출 함수 제작" />
+    <MESSAGE value="기존 ui close_button 위치 수정" />
+    <MESSAGE value="기존 run 함수 제거 및 os 모듈을 사용하여 다시 제작" />
+    <MESSAGE value="시그널 추가학습" />
+    <MESSAGE value="delete 커스텀 시그널 연결&#10;(진짜 힘들었따)" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete 커스텀 시그널 연결&#10;(진짜 힘들었따)" />
   </component>
 </project>

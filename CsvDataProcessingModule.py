@@ -1,6 +1,11 @@
 import pandas as pd
 
 
+# --------------- Bug ---------------
+# TODO: is_duplicate_value 에서 account_df에 데이터들이 모두 int 일 때 정확한 값을 배출하지 않은 버그 발생
+# > 걱정 난이도 : **    -> 아이디에.. 숫자만 있는 경우는 없자나..
+
+
 # -- default_value_df : name 을 인덱스로 사용, header : ['name', 'data']
 # default_value_df = pd.read_csv('./csv_file/defaultValueCsvData.csv', header=None, names=['name', 'data'])
 # default_value_df.set_index('name', inplace=True)
@@ -51,19 +56,20 @@ def add_account(account_id: str, account_pw: str) -> None:
     changed_df = account_df.append({'id': account_id, 'password': account_pw}, ignore_index=True)
     changed_df.to_csv('./csv_file/accountCsvData.csv', mode='w', index=False, sep='/')
 
+
 def is_duplicate_value(account_id: str) -> bool:
     """
     아이디가 중복되는지 확인하는 함수
     :return:
         bool
     """
-    account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
+    account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/').astype()
     bool_list = account_df['id'].isin([account_id]).tolist()
-    
     if True in bool_list:
         return True
-    else: 
+    else:
         return False
+
 
 # --------------- MainGui ---------------
 
@@ -165,7 +171,6 @@ class MainGuiCsvDataProcess:
         password = account_df[account_df['id'] == account_id].values.tolist()[0][1]
         return password
 
-    
     # ---- AccountCell -----
     @classmethod
     def delete_account(cls, idx: int) -> None:
@@ -177,6 +182,5 @@ class MainGuiCsvDataProcess:
         delete_account.to_csv('./csv_file/accountCsvData.csv', mode='w', index=False, sep='/')
 
 
-
 if __name__ == '__main__':
-    MainGuiCsvDataProcess.delete_account(0)
+    print(is_duplicate_value('123'))

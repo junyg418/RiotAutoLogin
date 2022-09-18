@@ -10,7 +10,7 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt
 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-from CsvDataProcessingModule import add_account, is_duplicate_value
+from CsvDataProcessingModule import AccountAddGuiCsvDataProcess
 
 
 class NoneValueError(Exception): pass
@@ -81,7 +81,7 @@ class Account(QDialog):
         """
         id 중복확인하는 함수
         """
-        if is_duplicate_value(self.account_id):
+        if AccountAddGuiCsvDataProcess.is_duplicate_value(self.account_id):
             raise OverlapValueError
 
     def check_none_value(self):
@@ -101,7 +101,7 @@ class Account(QDialog):
         """
         dialog 를 끝내는 함수
         """
-        add_account(self.account_id, self.account_pw)
+        AccountAddGuiCsvDataProcess.add_account(self.account_id, self.account_pw)
         return self.close()
 
 

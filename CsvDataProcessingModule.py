@@ -1,10 +1,7 @@
 import pandas as pd
 
 
-# --------------- Bug ---------------
-# TODO: is_duplicate_value 에서 account_df에 데이터들이 모두 int 일 때 정확한 값을 배출하지 않은 버그 발생
-# > 걱정 난이도 : **    -> 아이디에.. 숫자만 있는 경우는 없자나..
-
+# --------------- Format Dataframe ---------------
 
 # -- default_value_df : name 을 인덱스로 사용, header : ['name', 'data']
 # default_value_df = pd.read_csv('./csv_file/defaultValueCsvData.csv', header=None, names=['name', 'data'])
@@ -12,6 +9,14 @@ import pandas as pd
 
 # account_df : csv 분할자 "/" , head : csv 내에 되어있음, index 제거됨
 # account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
+
+# --------------- Bug ---------------
+
+
+# --------------- Fixed Bug ---------------
+
+# is_duplicate_value 에서 account_df에 데이터들이 모두 int 일 때 정확한 값을 배출하지 않은 버그 발생
+
 
 # --------------- RiotRunModule ---------------
 
@@ -55,6 +60,7 @@ class AccountAddGuiCsvDataProcess:
         account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
         # WARNING df.append will be removed from pandas
         changed_df = account_df.append({'id': account_id, 'password': account_pw}, ignore_index=True)
+        changed_df.astype('string')
         changed_df.to_csv('./csv_file/accountCsvData.csv', mode='w', index=False, sep='/')
 
 
@@ -65,7 +71,7 @@ class AccountAddGuiCsvDataProcess:
         :return:
             bool
         """
-        account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/').astype()
+        account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/').astype('string')
         bool_list = account_df['id'].isin([account_id]).tolist()
         if True in bool_list:
             return True
@@ -185,4 +191,6 @@ class MainGuiCsvDataProcess:
 
 
 if __name__ == '__main__':
-    print(is_duplicate_value('123'))
+    # AccountAddGuiCsvDataProcess.add_account('123','123')
+    a = pd.DataFrame(data={'col1': [1, 2], 'col2': [3, 4]}).astype('string')
+    print(a.values.tolist())

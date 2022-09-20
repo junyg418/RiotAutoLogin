@@ -1,8 +1,7 @@
-import sys
+from sys import argv, exit
 from time import sleep
 from PySide6.QtWidgets import (
     QWidget,
-    QDialog,
 
     QGridLayout,
     QHBoxLayout,
@@ -58,7 +57,6 @@ class MainWindow(QWidget):
         self._init_ui()
         self._init_widget()
         self.set_AccountWidget()
-        self.show()
 
     def _init_ui(self):
         # main layout
@@ -259,9 +257,10 @@ class AccountCell(QWidget):
 
 
 def main_gui_open() -> None:
-    app = QApplication(sys.argv)
+    app = QApplication(argv)
     widget = MainWindow()
-    sys.exit(app.exec())
+    widget.show()
+    exit(app.exec())
 
 
 if __name__ == '__main__':

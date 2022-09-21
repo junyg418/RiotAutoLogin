@@ -23,6 +23,7 @@ from GuiClassFile import AccountAddGui
 
 import ImageFIndModule
 import RiotRunModule
+from GuiClassFile import SettingGui
 
 
 class ResetSignal(QObject):
@@ -38,7 +39,7 @@ class MainWindow(QWidget):
         self.reset_signal_class = ResetSignal()
         self.reset_signal_class.reset_signal.connect(self.new_account_list_widget)
 
-        self.setWindowTitle('라이엇 자동 로그인')
+        self.setWindowTitle('자동 로그인')
         self.setGeometry(300, 300, 250, 300)
         self.setFixedSize(270, 300)
 
@@ -81,12 +82,14 @@ class MainWindow(QWidget):
         # setting button
         self.setting_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.setting_button.setMaximumHeight(40)
+        # TODO 곧 삭제 내역
+        self.setting_button.clicked.connect(SettingGui.open_pass_page)
 
         # riot start button
         self.riot_start_button.clicked.connect(self.clicked_riot_start_button)
         self.riot_start_button.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.riot_start_button.setMaximumHeight(70)
-
+    
     def set_AccountWidget(self):
         """
         AccountWidget 을 scroll_area에 setWidget하는 함수

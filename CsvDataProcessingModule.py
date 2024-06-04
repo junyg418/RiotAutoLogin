@@ -58,8 +58,6 @@ class AccountAddGuiCsvDataProcess:
         accountCsvData.csv 파일에 계정을 추가하는 함수
         """
         account_df = pd.read_csv('./csv_file/accountCsvData.csv', sep='/')
-        # WARNING df.append will be removed from pandas
-        # changed_df = account_df.concat({'id': account_id, 'password': account_pw}, ignore_index=True)
         changed_df = pd.concat([account_df, pd.DataFrame([[account_id, account_pw]], columns=['id', 'password'])], ignore_index=True)
         changed_df.astype('string')
         changed_df.to_csv('./csv_file/accountCsvData.csv', mode='w', index=False, sep='/')

@@ -182,8 +182,8 @@ class AccountWidget(QWidget):
         for class_element in account_list:
             id_button = class_element.id_button
             self.id_button_group.addButton(id_button)
-
         default_button_idx = MainGuiCsvDataProcess.get_account_default()
+        if not default_button_idx: return
         default_account_button = account_list[default_button_idx].id_button
         default_account_button.setChecked(True)
 

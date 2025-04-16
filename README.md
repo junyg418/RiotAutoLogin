@@ -8,6 +8,7 @@ __As a result of contacting Riot, use of this program as an unauthorized externa
 ## 설명서
 
 ## 구조도  
+![image](https://github.com/user-attachments/assets/55518aee-a7b4-43ef-ad9a-a366b99a4071)
 [구조도 링크](https://gitmind.com/app/doc/5r1i53wv0l).
 
 ### accountCsvData.csv  
